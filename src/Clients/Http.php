@@ -244,7 +244,8 @@ class Http
             return;
         }
 
-        file_put_contents($warningFilePath, time());
+        // This will break app on a read-only filesystem
+        // file_put_contents($warningFilePath, time());
 
         $e = new Exception();
         $stackTrace = str_replace("\n", "\n    ", $e->getTraceAsString());
